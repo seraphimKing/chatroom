@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Socket.IO chat</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="banner">
+            <h1>private Room</h1>
+            <span id="status"></span>
+        </div>
+        <div id="historyMsg"></div>
+        <div class="controls" >
+            <div class="items">
+                <label for="sendImage" class="imageLable">
+                    <input type="button" value="image"  />
+                    <input id="sendImage" type="file" value="image"/>
+                </label>
+            </div>
+            <textarea id="messageInput" placeHolder="enter to send"></textarea>
+            <input id="sendBtn" type="button" value="SEND">
+            <div id="emojiWrapper"></div>
+        </div>
+        </div>
+        <div id="loginWrapper">
+            <p id="info">connecting to server...</p>
+            <div id="nickWrapper">
+                <input type="text" placeHolder="nickName" id="nicknameInput" />
+                <input type="button" value="OK" id="loginBtn" />
+            </div>
+        </div>
+</body>
+<script src="/socket.io/socket.io.js"></script>
+<script src="scripts/hichat.js"></script>
+</html>
