@@ -36,6 +36,4 @@ io.on('connection', function(socket){
     });
 });
 
-http.listen(3000, function(){
-    console.log('server start');
-});
+http.listen(process.env.PORT || 8080); 
