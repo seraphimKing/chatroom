@@ -1,27 +1,20 @@
 <!doctype html>
 <html>
-
 <head>
     <title>Socket.IO chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="wrapper" id="wrapper">
         <div class="banner">
-            <h1>private Room</h1>
-            <span id="status"></span>
+            <h1>the Room of 大淋子～</h1>
         </div>
         <div id="historyMsg"></div>
-        <div class="controls" >
-            <div class="items">
-                <label for="sendImage" class="imageLable">
-                    <input type="button" value="image"  />
-                    <input id="sendImage" type="file" value="image"/>
-                </label>
-            </div>
+        <div class="controls" id="controls">
             <textarea id="messageInput" placeHolder="enter to send"></textarea>
-            <input id="sendBtn" type="button" value="SEND">
+            <span id="sendBtn" type="button">发送</span>
             <div id="emojiWrapper"></div>
         </div>
         </div>

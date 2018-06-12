@@ -1,11 +1,22 @@
+h1,h2,h3,h4 {
+    padding: 0;
+    margin: 0;
+}
+textarea, input {
+    border: none;
+    outline: none;
+}
 html, body {
     margin: 0;
     background-color: #efefef;
     font-family: sans-serif;
 }
 .wrapper {
-    width: 500px;
-    height: 640px;
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 5px;
     margin: 0 auto;
     background-color: #ddd;
@@ -28,26 +39,35 @@ html, body {
 .banner {
     height: 80px;
     width: 100%;
+    position: fixed;
+    top: 0;
+    background: url('../image/3.jpg') center/100% 80px no-repeat content-box;
+    text-align: center;
 }
-.banner p {
-    float: left;
-    display: inline-block;
+.banner h1 {
+    line-height: 80px;
+    font-size: 20px;
+    color: #09c;
 }
 .controls {
-    height: 100px;
+    height: 31px;
+    width: 100%;
     margin: 5px 0px;
-    position: relative;
+    position: fixed;
+    bottom: 0;
 }
 #historyMsg {
     height: 400px;
     background-color: #fff;
     overflow: auto;
-    padding: 2px;
+    padding-top: 82px;
+    padding-bottom: 20px;
 }
 #historyMsg img {
     max-width: 99%;
 }
 .timespan {
+    font-size: 14px;
     color: #ddd;
 }
 .items {
@@ -73,14 +93,19 @@ html, body {
 /*end custom file input*/
 
 #messageInput {
-    width: 440px;
-    max-width: 440px;
-    height: 90px;
+    width: 70%;
+    max-width: 70%;
+    height: 30px;
     max-height: 90px;
+    border: 1px solid black;
+    resize: none;
 }
 #sendBtn {
-    width: 50px;
-    height: 96px;
+    width: 100px;
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid black;
+    text-align: center;
     float: right;
 }
 #emojiWrapper {

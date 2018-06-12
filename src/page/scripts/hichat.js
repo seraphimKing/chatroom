@@ -20,6 +20,7 @@ HiChat.prototype = {
             //连接到服务器后，显示昵称输入框
             document.getElementById('info').textContent = 'get yourself a nickname :)';
             document.getElementById('nickWrapper').style.display = 'block';
+            document.getElementById('controls').style.display = 'none';
             document.getElementById('nicknameInput').focus();
         });
         //昵称设置的确定按钮
@@ -42,13 +43,12 @@ HiChat.prototype = {
         this.socket.on('loginSuccess', function() {
             document.title = 'hichat | ' + document.getElementById('nicknameInput').value;
             document.getElementById('loginWrapper').style.display = 'none';//隐藏遮罩层显聊天界面
+            document.getElementById('controls').style.display = 'block';
             document.getElementById('messageInput').focus();//让消息输入框获得焦点
         });
         this.socket.on('system', function(nickName, userCount, type) {
             const msg = nickName + (type === 'login' ? ' joined' : ' left');
-            that._displayNewMsg('system', msg, 'red');
-            // 将在线人数显示到页面顶部
-            document.getElementById('status').textContent = userCount + (userCount > 1 ? ' users' : ' user') + ' online';
+            that._displayNewMsg('system', msg, '#ccf');
         });
         this.socket.on('newMsg', function(user, msg) {
             that._displayNewMsg(user, msg);
@@ -85,7 +85,7 @@ HiChat.prototype = {
         const container = document.getElementById('historyMsg'),
               msgToDisplay = document.createElement('p'),
               date = new Date().toTimeString().substr(0, 8);
-        msgToDisplay.style.color = color || '#000';
+        msgToDisplay.style.color = color || '#ccf';
         msgToDisplay.innerHTML = user + '<span class="timespan">(' + date + '): </span>' + msg;
         container.appendChild(msgToDisplay);
         container.scrollTop = container.scrollHeight;
@@ -94,7 +94,7 @@ HiChat.prototype = {
         const container = document.getElementById('historyMsg'),
               msgToDisplay = document.createElement('p');
               date = new Date().toTimeString().substr(0, 8);
-        msgToDisplay.style.color = color || '#000';
+        msgToDisplay.style.color = color || '#ccf';
         msgToDisplay.innerHTML = user + '<span class="timespan">(' + date + '): </span> <br/>' + '<a href="' + imgData + '" target="_blank"><img src="' + imgData + '"/></a>';
         container.appendChild(msgToDisplay);
         container.scrollTop = container.scrollHeight;
